@@ -1,0 +1,30 @@
+{
+  "name": "logistics-vehicle-booking-system",
+  "version": "1.0.0",
+  "description": "fleetlink a vehicle booking platfrom",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --detectOpenHandles --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "theprince29"
+  },
+  "keywords": [
+    "theprince29-fleetlink"
+  ],
+  "author": "Prince Pal",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
+    "jest": "^30.1.3"
+  }
+}
