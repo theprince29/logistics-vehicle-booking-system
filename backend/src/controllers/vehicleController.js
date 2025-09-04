@@ -15,6 +15,15 @@ export const addVehicle = async (req, res) => {
   }
 };
 
+export const getAllVehicles = async (req, res) => {
+  try {
+    const vehicles = await Vehicle.find();
+    res.json(vehicles);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 export const getAvailableVehicles = async (req, res) => {
   try {
     const { capacityRequired, fromPincode, toPincode, startTime } = req.query;
