@@ -19,7 +19,6 @@ The frontend will:
 
 **Reliability** and **accurate availability checking** remain paramount.
 
----
 
 ##  Objective
 
@@ -52,6 +51,104 @@ it is a full-stack application (**Node.js backend, React frontend, MongoDB datab
 * **Frontend:** ReactJS
 * **Backend:** NodeJS
 * **Database:** MongoDB
-* **Testing:** Jest (or similar Node.js testing framework)
+* **Testing:** Jest
+
+---
+
+## ⚙️ Prerequisites
+
+* [Docker](https://docs.docker.com/get-docker/) installed
+* [Docker Compose](https://docs.docker.com/compose/) installed
+
+---
+
+##  Getting Started
+
+### 1. Clone the Repository
+
+```sh
+git clone https://github.com/theprince29/logistics-vehicle-booking-system.git
+cd logistics-vehicle-booking-system
+```
+
+### 2. Environment Variables
+
+Create a `.env` file inside the **backend** folder:
+
+```env
+PORT=5000
+MONGODB_URI=mongodb://user:pass@mongodb:27017/logistics?authSource=admin
+```
+
+⚠️ The credentials (`user:pass`) should match those in `docker-compose.yml`.
+
+---
+
+### 3. Build & Run with Docker
+
+```sh
+# Build and start all services
+docker-compose up --build
+
+# Run in detached mode
+docker-compose up -d
+```
+
+Services started:
+
+* Frontend → [http://localhost:3000](http://localhost:3000)
+* Backend → [http://localhost:5000](http://localhost:5000)
+* MongoDB → `localhost:27017`
+
+---
+
+### 4. Stopping Containers
+
+```sh
+docker-compose down
+```
+
+To also remove volumes (MongoDB data):
+
+```sh
+docker-compose down -v
+```
+
+---
+
+## 🛠 Development
+
+* **Backend**: Node.js + Express (API routes under `src/`)
+* **Frontend**: Next.js (UI with Shadcn, Tailwind)
+* **Database**: MongoDB with authentication
+
+If you want hot reload during dev:
+
+* Run `npm run dev` inside `backend` locally (instead of Docker)
+* Or adjust `docker-compose.override.yml` with `volumes` + `nodemon`
+
+
+
+
+##  Useful Commands
+
+```sh
+# View logs for a specific service
+docker-compose logs -f backend
+docker-compose logs -f frontend
+docker-compose logs -f mongodb
+
+# Rebuild without cache
+docker-compose build --no-cache
+```
+
+---
+
+##  License
+
+This project is licensed under the **ISC License** – feel free to use and modify.
+
+
+
 
 
